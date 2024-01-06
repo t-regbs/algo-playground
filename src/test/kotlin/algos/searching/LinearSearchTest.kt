@@ -1,3 +1,6 @@
+package algos.searching
+
+import algos.searching.linearSearch
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
