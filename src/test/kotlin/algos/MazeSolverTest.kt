@@ -3,6 +3,7 @@ package algos
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import util.Point
+import util.drawPath
 
 class MazeSolverTest {
     @Test
@@ -40,17 +41,6 @@ class MazeSolverTest {
 
         assertEquals(drawPath(maze, result), drawPath(maze, mazeResult))
 
-    }
-
-    fun drawPath(maze: List<String>, path: List<Point>): List<String> {
-
-        val mazeCopy = maze.map { it.toMutableList() }
-
-        path.forEach { point ->
-            mazeCopy[point.y][point.x] = '*'
-        }
-
-        return mazeCopy.map { it.joinToString("") }
     }
 
 }

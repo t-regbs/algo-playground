@@ -28,17 +28,17 @@ data class ReceiverType(
 sealed class Dsa
 
 fun main(args: Array<String>) {
-    val algos = args.map { Algos.valueOf(it) }
+    val packageName = "day${args.first().toInt()}"
+    val algos = args.takeLast(args.size - 1).map { Algos.valueOf(it) }
     val algoFunctions = algos.map {
         when (it.algoType) {
             is AlgoFunction -> {
-                buildAlgoFunction(it.algoType)
+                buildAlgoFunction(packageName, it.algoType)
             }
             is DS -> {
-                buildDS(it.algoType)
+                buildDS(packageName, it.algoType)
             }
         }
-
     }
     algoFunctions.forEach {
         println("----${it.name}----")
@@ -46,9 +46,9 @@ fun main(args: Array<String>) {
     }
 }
 
-fun buildAlgoFunction(func: AlgoFunction): FileSpec {
+fun buildAlgoFunction(packageName: String, func: AlgoFunction): FileSpec {
     return with(func) {
-        FileSpec.builder("", fileName)
+        FileSpec.builder(packageName, fileName)
             .addFunction(
                 FunSpec.builder(name).apply {
                     for (arg in args) {
@@ -66,9 +66,9 @@ fun buildAlgoFunction(func: AlgoFunction): FileSpec {
     }
 }
 
-fun buildDS(ds: DS): FileSpec {
+fun buildDS(packageName: String, ds: DS): FileSpec {
     return with(ds) {
-        FileSpec.builder("", name).apply {
+        FileSpec.builder(packageName, name).apply {
             addType(
                 TypeSpec.classBuilder(name).apply {
                     receiverType?.let {

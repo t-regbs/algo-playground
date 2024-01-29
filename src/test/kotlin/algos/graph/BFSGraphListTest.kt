@@ -1,5 +1,6 @@
 package algos.graph
 
+import day3.bfs
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
 import util.list2

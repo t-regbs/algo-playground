@@ -83,3 +83,14 @@ val matrix2 = arrayOf(
     arrayOf(0, 0, 18, 0, 0, 0, 1),
     arrayOf(0, 0, 0, 1, 0, 0, 1)
 )
+
+fun drawPath(maze: List<String>, path: List<Point>): List<String> {
+
+    val mazeCopy = maze.map { it.toMutableList() }
+
+    path.forEach { point ->
+        mazeCopy[point.y][point.x] = '*'
+    }
+
+    return mazeCopy.map { it.joinToString("") }
+}

@@ -102,7 +102,7 @@ enum class Algos(
     BTBFS(
         AlgoFunction(
             fileName = DataStructuresAndAlgorithms.BTBFS.name,
-            name = "bfs",
+            name = "bfsTree",
             args = listOf(
                 "head" to BinaryNodeIntTypeName,
                 "needle" to Int::class.asTypeName()
@@ -148,7 +148,7 @@ enum class Algos(
     DFSOnBST(
         AlgoFunction(
             fileName = DataStructuresAndAlgorithms.DFSOnBST.name,
-            name = "dfs",
+            name = "dfsTree",
             args = listOf(
                 "head" to BinaryNodeIntTypeName,
                 "needle" to Int::class.asTypeName()

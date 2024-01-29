@@ -2,7 +2,6 @@ package ds
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import util.ILRU
 
 class LRUTest {
 

@@ -2,7 +2,7 @@ package algos.sorting
 
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
-import algos.sorting.insertionSort
+import day3.insertionSort
 
 class InsertionSortTest {
 
