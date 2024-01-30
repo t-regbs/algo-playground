@@ -19,3 +19,34 @@ interface ILRU<K, V> {
 }
 
 data class Point(val x: Int, val y: Int)
+
+enum class DataStructuresAndAlgorithms {
+    BFSGraphList,
+    BFSGraphMatrix,
+    DFSGraphList,
+    DijkstraList,
+    PrimsList,
+    BinarySearch,
+    LinearSearch,
+    BubbleSort,
+    InsertionSort,
+    MergeSort,
+    QuickSort,
+    BTBFS,
+    BTInOrder,
+    BTPostOrder,
+    BTPreOrder,
+    CompareBinaryTrees,
+    DFSOnBST,
+    MazeSolver,
+    TwoCrystalBalls,
+    DoublyLinkedList,
+    LRU,
+    Map,
+    MinHeap,
+    Queue,
+    RingBuffer,
+    SinglyLinkedList,
+    Stack,
+    Trie
+}
