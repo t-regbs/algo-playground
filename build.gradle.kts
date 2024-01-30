@@ -32,7 +32,7 @@ val algoList = listOf(
     "CompareBinaryTrees",
     "BTInOrder",
     "MazeSolver",
-    "TwoCrystalBalls",
+    "LRU",
 )
 
 tasks.test {
@@ -40,7 +40,7 @@ tasks.test {
 }
 
 tasks.register("runGenerator", JavaExec::class) {
-    group = "kotlinpoet"
+    group = "setupScripts"
     classpath = sourceSets["main"].runtimeClasspath
 
     mainClass.set("scripts.DsaKt")
@@ -77,8 +77,8 @@ tasks.register("runGenerator", JavaExec::class) {
     }
 }
 
-tasks.register("runTests", JavaExec::class) {
-    group = "kotlinpoet"
+tasks.register("buildTests", JavaExec::class) {
+    group = "setupScripts"
     classpath = sourceSets["main"].runtimeClasspath
 
     mainClass.set("scripts.TestsKt")
@@ -112,6 +112,16 @@ tasks.register("runTests", JavaExec::class) {
                     outputFile.writeText(s)
                 }
             }
+    }
+}
+
+
+tasks.register("runTests", Test::class) {
+    dependsOn("buildTests")
+    group = "setupScripts"
+    val currentDay = properties["currentDay"]
+    filter {
+        includeTestsMatching("day$currentDay.*")
     }
 }
 
